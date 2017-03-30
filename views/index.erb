@@ -45,7 +45,7 @@
                 <button class='btn btn-conf btn-red' type="submit"> Show me! </button>
               </form>
             </div><!--/mt-->
-            <h5> The quickest way to choose where to eat. </h5>
+            <h5> The quickest way to choose a restaurant near you. </h5>
             <h6> Powered by <a href="https://www.yelp.com/developers"> Yelp's Fusion API. </a> </h6>
           </div>
         </div><!--/row-->
@@ -55,6 +55,21 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    <script>
+    var x = document.getElementById("demo");
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+      }
+    }
+
+    function showPosition(position) {
+      x.innerHTML = "Latitude: " + position.coords.latitude +
+      "<br>Longitude: " + position.coords.longitude;
+    }
+    </script>
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/retina-1.1.0.js"></script>
