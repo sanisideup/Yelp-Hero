@@ -9,8 +9,8 @@ require "optparse"
 # Place holders for Yelp Fusion's OAuth 2.0 credentials. Grab them
 # from https://www.yelp.com/developers/v3/manage_app
 secret_file = File.open("secret.yml").to_a
-CLIENT_ID = secret_file.at(1)
-CLIENT_SECRET = secret_file.at(3)
+CLIENT_ID = secret_file.at(1).to_s
+CLIENT_SECRET = secret_file.at(3).to_s
 
 
 # Constants, do not change these
@@ -92,8 +92,6 @@ def search(term, location)
   params = {
     term: term,
     location: location,
-    latitude: latitude,
-    longitude: longitude,
     price: PRICE,
     limit: SEARCH_LIMIT
   }
