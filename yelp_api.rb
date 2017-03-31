@@ -24,7 +24,8 @@ GRANT_TYPE = "client_credentials"
 DEFAULT_BUSINESS_ID = "yelp-san-francisco"
 DEFAULT_TERM = "dinner"
 DEFAULT_LOCATION = "San Francisco, CA"
-SEARCH_LIMIT = 5
+SEARCH_LIMIT = 10
+PRICE = "1, 2"
 
 
 # Make a request to the Fusion API token endpoint to get the access token.
@@ -91,6 +92,9 @@ def search(term, location)
   params = {
     term: term,
     location: location,
+    latitude: latitude,
+    longitude: longitude,
+    price: price,
     limit: SEARCH_LIMIT
   }
 
