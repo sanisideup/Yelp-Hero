@@ -1,11 +1,14 @@
 require 'sinatra'
-# require 'sinatra/reloader'
+require 'sinatra/reloader'
 
 get '/' do
   erb :index
 end
 
-get '/search' do
+post '/search' do
 
-  erb :search #, :locals {:number => number}
+  # search(params[:term])
+  output = params[:term]
+  output
+  # erb :search #, :locals {:number => number}
 end
