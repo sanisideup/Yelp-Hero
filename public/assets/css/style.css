@@ -100,7 +100,7 @@ a {
 	-o-transition: background-color .4s linear, color .4s linear;
 	-ms-transition: background-color .4s linear, color .4s linear;
 	transition: background-color .4s linear, color .4s linear;
-	color: #c90303;
+	color: #D32323;
 }
 a:hover,
 a:focus {
@@ -172,7 +172,7 @@ input {
 	}
 
 .btn-red {
-	background: #c90303;
+	background: #D32323;
 	color: white
 }
 
