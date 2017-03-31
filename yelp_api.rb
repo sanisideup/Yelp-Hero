@@ -1,6 +1,7 @@
 require "json"
 require "http"
 require "optparse"
+require 'sinatra/reloader'
 
 # Orginially from Yelp Fusion Code Sample for Ruby
 # https://github.com/Yelp/yelp-fusion/tree/master/fusion/ruby
@@ -25,7 +26,6 @@ DEFAULT_BUSINESS_ID = "yelp-san-francisco"
 DEFAULT_TERM = "dinner"
 DEFAULT_LOCATION = "San Francisco, CA"
 SEARCH_LIMIT = 10
-PRICE = "1, 2"
 
 
 # Make a request to the Fusion API token endpoint to get the access token.
@@ -56,7 +56,8 @@ def bearer_token
   response = HTTP.post(url, params: params)
   parsed = response.parse
 
-  "#{parsed['token_type']} #{parsed['access_token']}"
+  # "#{parsed["token_type"]} #{parsed["access_token"]}"
+  "Bearer 3v0nmDghycZLYPnoVEF42B3BPcoyBk8Ea2DVdB6IbQNnNf4dkJ1WemaPUfopdxGz4tgWm8ZZ-aSP92aM3qtXdBkDJCUkHv9z9oVBVW9zP9PrRFrAHqqQKFPVlZHeWHYx"
 end
 
 
@@ -92,7 +93,6 @@ def search(term, location)
   params = {
     term: term,
     location: location,
-    price: PRICE,
     limit: SEARCH_LIMIT
   }
 
