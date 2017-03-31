@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'sinatra/reloader'
+require_relative 'yelp_api.rb'
 
 get '/' do
   erb :index
