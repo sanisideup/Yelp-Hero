@@ -35,14 +35,82 @@
 
     <div class="container ptb">
       <div class="col-md-6">
-        <div class="row">
-          <div class="col-md-2"> <img src= <%= @image_url %> height="100" alt=""> </div>
-          <div class="col-md-10"> <h3> <%= @name %> </h3> <p> <%=@address[0]%> <%=@address[1]%> </p> </div>
+
+        <div class="container result">
+          <div class="col-md-6">
+            <a href=<%= @url_2 %>>
+            <hr />
+              <div class="row">
+                  <div id="preview" class="col-md-3"> <img src= <%= @image_url_0 %> width="100" alt=""> </div>
+                  <div class="col-md-9"> <h2> <%= @name_0 %> </h2>
+                    <h5> <%=@address_0[0] %> <%= @address_0[1] %> </h5>
+                    <h5> <%=@phone_number_0 %> </h5>
+                  </div>
+                </div>
+              <div class="col-md-6">
+                <h5> Rating: <%= @rating_0 %> </h5>
+                <h5> Price: <%= @price_0 %> </h5>
+              </div>
+              <div class="col-md-6">
+                <h5> <%= @review_count_0 %> Reviews </h5>
+                <h5> <%= @category_0 %> </h5>
+              </div>
+              <hr />
+            </a>
+          </div>
         </div>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+
+        <div class="container result">
+          <div class="col-md-6">
+            <a href=<%= @url_2 %>>
+            <hr />
+              <div class="row">
+                  <div id="preview" class="col-md-3"> <img src= <%= @image_url_1 %> width="100" alt=""> </div>
+                  <div class="col-md-9"> <h2> <%= @name_1 %> </h2>
+                    <h5> <%=@address_1[0] %> <%= @address_1[1] %> </h5>
+                    <h5> <%=@phone_number_1 %> </h5>
+                  </div>
+                </div>
+              <div class="col-md-6">
+                <h5> Rating: <%= @rating_1 %> </h5>
+                <h5> Price: <%= @price_1 %> </h5>
+              </div>
+              <div class="col-md-6">
+                <h5> <%= @review_count_1 %> Reviews </h5>
+                <h5> <%= @category_1 %> </h5>
+              </div>
+              <hr />
+            </a>
+          </div>
+        </div>
+
+        <div class="container result">
+          <div class="col-md-6">
+            <a href=<%= @url_2 %>>
+            <hr />
+              <div class="row">
+                  <div id="preview" class="col-md-3"> <img src= <%= @image_url_2 %> width="100" alt=""> </div>
+                  <div class="col-md-9"> <h2> <%= @name_2 %> </h2>
+                    <h5> <%=@address_2[0] %> <%= @address_2[1] %> </h5>
+                    <h5> <%=@phone_number_2 %> </h5>
+                  </div>
+                </div>
+              <div class="col-md-6">
+                <h5> Rating: <%= @rating_2 %> </h5>
+                <h5> Price: <%= @price_2 %> </h5>
+              </div>
+              <div class="col-md-6">
+                <h5> <%= @review_count_2 %> Reviews </h5>
+                <h5> <%= @category_2 %> </h5>
+              </div>
+              <hr />
+            </a>
+          </div>
+        </div>
+
       </div>
 
-      <div class="col-md-6"> <div id="mapholder"></div> </div>
+      <div class="col-md-6"> <div id="mapholder" ></div> </div>
     </div>
 
 

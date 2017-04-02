@@ -93,19 +93,26 @@ end
 #        }
 #
 # Returns a parsed json object of the request
-def search(term, latitude, longitude)
+def search(term, location = DEFAULT_LOCATION, latitude = 0.0, longitude = 0.0)
   url = "#{API_HOST}#{SEARCH_PATH}"
-  params = {
-    term: term,
-    latitude: latitude,
-    longitude: longitude,
-    limit: SEARCH_LIMIT
-  }
+  if (location == "my location" && (latitude != 0.0 && longitude != 0.0)) then
+    params = {
+      term: term,
+      latitude: latitude,
+      longitude: longitude,
+      limit: SEARCH_LIMIT
+    }
+  else
+    params = {
+      term: term,
+      location: location,
+      limit: SEARCH_LIMIT
+    }
+  end
 
   response = HTTP.auth(bearer_token).get(url, params: params)
   response.parse
 end
-
 
 # Look up a business by a given business id. Full documentation is online at:
 # https://www.yelp.com/developers/documentation/v3/business

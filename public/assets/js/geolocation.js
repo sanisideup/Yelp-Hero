@@ -1,9 +1,11 @@
 getLocation();
 var x = document.getElementById("demo");
 
+// Unfortunately navigator.geolocation.getCurrentPosition is very unreliable
+// http://stackoverflow.com/questions/3397585/navigator-geolocation-getcurrentposition-sometimes-works-sometimes-doesnt
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition,showError);
+        navigator.geolocation.getCurrentPosition(showPosition,showError, {timeout:10000});
     } else {
         x.innerHTML = "Geolocation is not supported by this browser.";}
 }
@@ -17,7 +19,7 @@ function showPosition(position) {
 
     latlon = new google.maps.LatLng(lat, lon)
     mapholder = document.getElementById('mapholder')
-    mapholder.style.height='650px';
+    mapholder.style.height='620px';
     mapholder.style.width='500px';
 
     var myOptions = {

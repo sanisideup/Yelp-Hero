@@ -41,12 +41,17 @@
     <div id="h">
       <div class="container">
         <div class="row">
-          <div class="col-md-8 col-md-offset-2 centered">
+          <div class="col-md-10 col-md-offset-1 centered">
             <h1><table>
             </table> Choose from less, eat for more. </h1>
             <div class="mtb">
               <form role="form" action="/search" method="post" enctype="plain">
-                <input type="text" name="term" class="text-input" placeholder="tacos, cheap dinner, Max's">
+                <div class="col-md-6">
+                  <input type="text" name="term" class="text-input" placeholder="tacos, cheap dinner, or Max's">
+                </div>
+                <div class="col-md-6">
+                  <input type="text" name="location" class="text-input" placeholder="San Francisco, CA or my location">
+                </div>
                 <input type="hidden" id="lat" name="lat" value="" />
                 <input type="hidden" id="lon" name="lon" value="" />
                 <button class='btn btn-conf btn-red' type="submit" > Show me where! </button>

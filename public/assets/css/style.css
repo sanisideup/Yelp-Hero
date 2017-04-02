@@ -32,6 +32,24 @@ h1, h2, h3, h4, h5, h6 {
 	color: black
 }
 
+#result h5 {
+	color: #666;
+}
+
+hr {
+	width:90%;
+	height:1px;
+	background: #fff;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#logo {
+	height: 100px;
+	width: 100px;
+	overflow: hidden;
+}
+
 p {
 	padding: 0;
 	margin-bottom: 12px;
@@ -40,7 +58,7 @@ p {
 	font-size: 16px;
 	line-height: 26px;
 	letter-spacing: 1px;
-	color: #666;
+	color: black;
 	margin-top: 10px;
 }
 
@@ -131,10 +149,8 @@ input {
 }
 
 .text-input {
-	float: left;
-	width: 65%;
+	width: 100%;
 	text-align: left;
-	margin-right: 2px;
 }
 
 @media screen and (max-width: 767px) {
@@ -154,6 +170,7 @@ input {
 /*Buttons Configuration */
 .btn-conf {
 	border-radius: 50px;
+	margin-top: 30px;
 	margin-right: 15px;
 	font-size: 11px;
 	letter-spacing: 1px;
