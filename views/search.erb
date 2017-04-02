@@ -34,82 +34,29 @@
   <body>
 
     <div class="container ptb">
-        <div class="row centered">
-          <h2 class="mb">Select from these options.<br>It's as simple as that.</h2>
-          <div class="col-md-4">
-            <div class="price-table">
-                <div class="p-head">
-                  Standard
-                </div>
-                <div class="p-body">
-                  <ul class="features">
-                    <li>10GB Storage Space</li>
-                    <li>Free Support</li>
-                    <li>100 Users</li>
-                    <li>100GB Bandwith</li>
-                  </ul>
-                  <div class="price">
-                    <span class="sub">$</span>
-                    <span class="detail">29</span>
-                    <span class="sub">/mo.</span>
-                  </div><!--/price-->
-                  <button class="btn btn-conf-2 btn-red">Give me this one</button>
-                </div><!--/p-body-->
-            </div><!--/price-table-->
-          </div><!--/col-md-4-->
-
-           <div class="col-md-4">
-            <div class="price-table">
-                <div class="p-head">
-                  Business
-                </div>
-                <div class="p-body">
-                  <ul class="features">
-                    <li>50GB Storage Space</li>
-                    <li>Free Support</li>
-                    <li>500 Users</li>
-                    <li>500GB Bandwith</li>
-                  </ul>
-                  <div class="price">
-                    <span class="sub">$</span>
-                    <span class="detail">49</span>
-                    <span class="sub">/mo.</span>
-                  </div><!--/price-->
-                  <button class="btn btn-conf-2 btn-red">Give me this one</button>
-                </div><!--/p-body-->
-            </div><!--/price-table-->
-          </div><!--/col-md-4-->
-
-           <div class="col-md-4">
-            <div class="price-table">
-                <div class="p-head">
-                  Corporate
-                </div>
-                <div class="p-body">
-                  <ul class="features">
-                    <li>100GB Storage Space</li>
-                    <li>Free Support</li>
-                    <li>10,000 Users</li>
-                    <li>3TB Bandwith</li>
-                  </ul>
-                  <div class="price">
-                    <span class="sub">$</span>
-                    <span class="detail">89</span>
-                    <span class="sub">/mo.</span>
-                  </div><!--/price-->
-                  <button class="btn btn-conf-2 btn-red">Give me this one</button>
-                </div><!--/p-body-->
-            </div><!--/price-table-->
-          </div><!--/col-md-4-->
-        </div><!--/row-->
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-2"> <img src= <%= @image_url %> height="100" alt=""> </div>
+          <div class="col-md-10"> <h3> <%= @name %> </h3> <p> <%=@address[0]%> <%=@address[1]%> </p> </div>
+        </div>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
       </div>
 
-      <div id="mapholder"></div>
+      <div class="col-md-6"> <div id="mapholder"></div> </div>
+    </div>
 
+
+    <form role="form" action="/search" method="post" enctype="plain">
+      <input type="hidden" id="lat" name="lat" value="" />
+      <input type="hidden" id="lon" name="lon" value="" />
+    </form>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/assets/js/jquery.min.js"></script>
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyDfllPCZ2TS4TAwnhaiyW09fV18x-kLzrY"></script>
+    <script src="/assets/js/geolocation.js"></script>
+
+    <script src="assets/js/jquery.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/retina-1.1.0.js"></script>
   </body>

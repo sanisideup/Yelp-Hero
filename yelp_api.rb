@@ -93,11 +93,12 @@ end
 #        }
 #
 # Returns a parsed json object of the request
-def search(term, location)
+def search(term, latitude, longitude)
   url = "#{API_HOST}#{SEARCH_PATH}"
   params = {
     term: term,
-    location: location,
+    latitude: latitude,
+    longitude: longitude,
     limit: SEARCH_LIMIT
   }
 
