@@ -10,8 +10,8 @@ require 'sinatra/reloader'
 # Place holders for Yelp Fusion's OAuth 2.0 credentials. Grab them
 # from https://www.yelp.com/developers/v3/manage_app
 secret_file = File.open("secret.yml").to_a
-CLIENT_ID = secret_file.at(1).to_s
-CLIENT_SECRET = secret_file.at(3).to_s
+CLIENT_ID = "7ac95mkCJBR9WVPfpf3R_w" #secret_file.at(1).to_s
+CLIENT_SECRET = "wdQd4u5PfHM7nKp4hBppdRdLslufK9gM66v8NgiJHVnZ6S1UPi5hUkftoRLLzZkD" #secret_file.at(3).to_s
 
 
 # Constants, do not change these
@@ -46,6 +46,10 @@ def bearer_token
   raise "Please set your CLIENT_ID" if CLIENT_ID.nil?
   raise "Please set your CLIENT_SECRET" if CLIENT_SECRET.nil?
 
+  puts CLIENT_ID
+  puts CLIENT_SECRET
+
+
   # Build our params hash
   params = {
     client_id: CLIENT_ID,
@@ -55,9 +59,10 @@ def bearer_token
 
   response = HTTP.post(url, params: params)
   parsed = response.parse
+  puts parsed
 
-  # "#{parsed["token_type"]} #{parsed["access_token"]}"
-  "Bearer 3v0nmDghycZLYPnoVEF42B3BPcoyBk8Ea2DVdB6IbQNnNf4dkJ1WemaPUfopdxGz4tgWm8ZZ-aSP92aM3qtXdBkDJCUkHv9z9oVBVW9zP9PrRFrAHqqQKFPVlZHeWHYx"
+  "#{parsed["token_type"]} #{parsed["access_token"]}" # FIX THIS
+  # "Bearer 3v0nmDghycZLYPnoVEF42B3BPcoyBk8Ea2DVdB6IbQNnNf4dkJ1WemaPUfopdxGz4tgWm8ZZ-aSP92aM3qtXdBkDJCUkHv9z9oVBVW9zP9PrRFrAHqqQKFPVlZHeWHYx"
 end
 
 
