@@ -86,18 +86,3 @@ post '/search' do
   }
 
 end
-
-get '/location' do
-  erb :location
-end
-
-post '/go' do
-    @lat = params[:lat]
-    @lon = params[:lon]
-
-    erb :go, :locals => {
-      :lat => @lat,
-      :lon => @lon
-    }
-
-end
