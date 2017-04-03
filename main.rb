@@ -1,5 +1,4 @@
 require 'sinatra'
-# require 'sinatra/reloader'
 require 'json'
 require_relative 'yelp_api.rb'
 
