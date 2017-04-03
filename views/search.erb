@@ -125,10 +125,9 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="http://maps.google.com/maps/api/js?key=AIzaSyDfllPCZ2TS4TAwnhaiyW09fV18x-kLzrY&callback=initMap"></script>
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyDfllPCZ2TS4TAwnhaiyW09fV18x-kLzrY&sensor=false&callback=initMap"></script>
     <script>
       var map;
-      initMap();
 
       function initMap() {
           map = new google.maps.Map(document.getElementById('mapholder'), {
@@ -226,6 +225,11 @@
                   break;
           }
       }
+
+      function log(str){
+  document.getElementsByTagName('pre')[0].appendChild(document.createTextNode('['+new Date().getTime()+']\n'+str+'\n\n'));
+}
+
     </script>
 
     <script src="assets/js/jquery.min.js"></script>
