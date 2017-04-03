@@ -38,9 +38,6 @@ SEARCH_LIMIT = 3
 def bearer_token
   url = "#{API_HOST}#{TOKEN_PATH}"
 
-  puts CLIENT_ID
-  puts CLIENT_SECRET
-
   raise "Please set your CLIENT_ID" if CLIENT_ID.nil?
   raise "Please set your CLIENT_SECRET" if CLIENT_SECRET.nil?
 
