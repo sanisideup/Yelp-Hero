@@ -1,17 +1,13 @@
 require "json"
 require "http"
 require "optparse"
-require 'sinatra/reloader'
+require 'figaro/sinatra'
 
 # Orginially from Yelp Fusion Code Sample for Ruby
 # https://github.com/Yelp/yelp-fusion/tree/master/fusion/ruby
 
-
-# Place holders for Yelp Fusion's OAuth 2.0 credentials. Grab them
-# from https://www.yelp.com/developers/v3/manage_app
-secret_file = File.open("secret.yml").to_a
-CLIENT_ID = "7ac95mkCJBR9WVPfpf3R_w" #secret_file.at(1).to_s
-CLIENT_SECRET = "wdQd4u5PfHM7nKp4hBppdRdLslufK9gM66v8NgiJHVnZ6S1UPi5hUkftoRLLzZkD" #secret_file.at(3).to_s
+CLIENT_ID = ENV["CLIENT_ID"]
+CLIENT_SECRET = ENV["CLIENT_SECRET"]
 
 
 # Constants, do not change these
@@ -25,7 +21,7 @@ GRANT_TYPE = "client_credentials"
 DEFAULT_BUSINESS_ID = "yelp-san-francisco"
 DEFAULT_TERM = "dinner"
 DEFAULT_LOCATION = "San Francisco, CA"
-SEARCH_LIMIT = 10
+SEARCH_LIMIT = 3
 
 
 # Make a request to the Fusion API token endpoint to get the access token.
@@ -40,15 +36,13 @@ SEARCH_LIMIT = 10
 #
 # Returns your access token
 def bearer_token
-  # Put the url together
   url = "#{API_HOST}#{TOKEN_PATH}"
-
-  raise "Please set your CLIENT_ID" if CLIENT_ID.nil?
-  raise "Please set your CLIENT_SECRET" if CLIENT_SECRET.nil?
 
   puts CLIENT_ID
   puts CLIENT_SECRET
 
+  raise "Please set your CLIENT_ID" if CLIENT_ID.nil?
+  raise "Please set your CLIENT_SECRET" if CLIENT_SECRET.nil?
 
   # Build our params hash
   params = {
@@ -61,8 +55,7 @@ def bearer_token
   parsed = response.parse
   puts parsed
 
-  "#{parsed["token_type"]} #{parsed["access_token"]}" # FIX THIS
-  # "Bearer 3v0nmDghycZLYPnoVEF42B3BPcoyBk8Ea2DVdB6IbQNnNf4dkJ1WemaPUfopdxGz4tgWm8ZZ-aSP92aM3qtXdBkDJCUkHv9z9oVBVW9zP9PrRFrAHqqQKFPVlZHeWHYx"
+  "#{parsed["token_type"]} #{parsed["access_token"]}"
 end
 
 

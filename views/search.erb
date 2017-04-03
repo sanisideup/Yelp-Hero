@@ -122,7 +122,107 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="http://maps.google.com/maps/api/js?key=AIzaSyDfllPCZ2TS4TAwnhaiyW09fV18x-kLzrY"></script>
-    <script src="/assets/js/geolocation.js"></script>
+    <script>
+      var map;
+      initMap();
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('mapholder'), {
+          zoom: 14,
+          center: new google.maps.LatLng(<%= @lat_0 %>, <%= @lon_0 %>),
+          mapTypeId: 'roadmap',
+          navigationControlOptions: {style:google.maps.NavigationControlStyle.SMALL}
+        });
+
+        mapholder.style.height='620px';
+        mapholder.style.width='500px';
+
+        var icons = {
+          yelp1: {
+            icon: {
+              url: "/assets/img/yelp1.png",
+              scaledSize: new google.maps.Size(50, 50),
+              origin: new google.maps.Point(0,0), // origin
+              anchor: new google.maps.Point(0, 0) // anchor
+              }
+            },
+            yelp2: {
+              icon: {
+                url: "/assets/img/yelp2.png",
+                scaledSize: new google.maps.Size(50, 50),
+                origin: new google.maps.Point(0,0), // origin
+                anchor: new google.maps.Point(0, 0) // anchor
+                }
+              },
+              yelp3: {
+                icon: {
+                  url: "/assets/img/yelp3.png",
+                  scaledSize: new google.maps.Size(50, 50 ),
+                  origin: new google.maps.Point(0,0), // origin
+                  anchor: new google.maps.Point(0, 0) // anchor
+                  }
+                }
+        };
+
+        function addMarker(feature) {
+          var marker = new google.maps.Marker({
+            position: feature.position,
+            icon: icons[feature.type].icon,
+            map: map
+          });
+        }
+
+
+        var features = [
+          {
+            position: new google.maps.LatLng(<%= @lat_0 %>, <%= @lon_0 %>),
+            type: "yelp1"
+          }, {
+            position: new google.maps.LatLng(<%= @lat_1 %>, <%= @lon_1 %>),
+            type: "yelp2"
+          }, {
+            position: new google.maps.LatLng(<%= @lat_2 %>, <%= @lon_2 %>),
+            type: "yelp3"
+          }
+        ];
+
+        for (var i = 0, feature; feature = features[i]; i++) {
+          addMarker(feature);
+        }
+      }
+
+      <!-- Unfortunately unreliable -->
+      function getLocation() {
+          if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(showPosition,showError, {timeout:10000});
+          } else {
+              x.innerHTML = "Geolocation is not supported by this browser.";}
+      }
+
+      function showPosition(position) {
+        lat = position.coords.latitude;
+        lon = position.coords.longitude;
+        document.getElementById('lat').value = lat;
+        document.getElementById('lon').value = lon;
+      }
+
+      function showError(error) {
+          switch(error.code) {
+              case error.PERMISSION_DENIED:
+                  x.innerHTML = "User denied the request for Geolocation."
+                  break;
+              case error.POSITION_UNAVAILABLE:
+                  x.innerHTML = "Location information is unavailable."
+                  break;
+              case error.TIMEOUT:
+                  x.innerHTML = "The request to get user location timed out."
+                  break;
+              case error.UNKNOWN_ERROR:
+                  x.innerHTML = "An unknown error occurred."
+                  break;
+          }
+      }
+    </script>
 
     <script src="assets/js/jquery.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>

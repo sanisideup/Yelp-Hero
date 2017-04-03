@@ -1,18 +1,16 @@
 require 'sinatra'
-require 'sinatra/reloader'
+# require 'sinatra/reloader'
 require 'json'
 require_relative 'yelp_api.rb'
-require_relative 'geolocation_failure.rb'
 
 get '/' do
   erb :index
-  # "CLIENT_ID: #{CLIENT_ID} CLIENT_SECRET: #{CLIENT_SECRET}"
+  #{ }"CLIENT_ID: #{ENV["CLIENT_ID"]} CLIENT_SECRET: #{ENV["CLIENT_SECRET"]}"
   # token = bearer_token
   # JSON.pretty_generate(token)
 end
 
 post '/search' do
-  set_location(lat,lon)
   @lat = params[:lat].to_f
   @lon = params[:lon].to_f
 
@@ -20,6 +18,7 @@ post '/search' do
   response = search(params[:term], params[:location], @lat, @lon)
   puts response
 
+  # Coudln't find a way to access Ruby array's in HTML
   # SEARCH RESULT ONE
   @name_0 = response["businesses"][0]["name"]
   @address_0 = [response["businesses"][0]["location"]["display_address"][0],
@@ -84,7 +83,7 @@ post '/search' do
     :category_1 => @category_1,
     :image_url_1 => @image_url_1,
     :lat_1 => @lat_1,
-    :lon_1 => @lon_1
+    :lon_1 => @lon_1,
   }
 
 end
