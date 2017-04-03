@@ -127,7 +127,7 @@
       initMap();
 
       function initMap() {
-        map = new google.maps.Map(document.getElementById('mapholder'), {
+          map = new google.maps.Map(document.getElementById('mapholder'), {
           zoom: 14,
           center: new google.maps.LatLng(<%= @lat_0 %>, <%= @lon_0 %>),
           mapTypeId: 'roadmap',
