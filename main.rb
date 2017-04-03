@@ -4,9 +4,6 @@ require_relative 'yelp_api.rb'
 
 get '/' do
   erb :index
-  #{ }"CLIENT_ID: #{ENV["CLIENT_ID"]} CLIENT_SECRET: #{ENV["CLIENT_SECRET"]}"
-  # token = bearer_token
-  # JSON.pretty_generate(token)
 end
 
 post '/search' do
