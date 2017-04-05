@@ -6,8 +6,8 @@ require 'figaro/sinatra'
 # Orginially from Yelp Fusion Code Sample for Ruby
 # https://github.com/Yelp/yelp-fusion/tree/master/fusion/ruby
 
-CLIENT_ID = "7ac95mkCJBR9WVPfpf3R_w" #ENV["CLIENT_ID"]
-CLIENT_SECRET = "wdQd4u5PfHM7nKp4hBppdRdLslufK9gM66v8NgiJHVnZ6S1UPi5hUkftoRLLzZkD" #ENV["CLIENT_SECRET"]
+CLIENT_ID = ENV["CLIENT_ID"]
+CLIENT_SECRET = ENV["CLIENT_SECRET"]
 
 
 # Constants, do not change these
