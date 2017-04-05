@@ -69,17 +69,6 @@ post '/search' do
     :image_url_0 => @image_url_0,
     :lat_0 => @lat_0,
     :lon_0 => @lon_0,
-
-    :name_1 => @name_1,
-    :address_1 => @address_1,
-    :rating_1 => @rating_1,
-    :review_count_1 => @review_count_1,
-    :phone_number_1 => @phone_number_1,
-    :price_1 => @price_1,
-    :category_1 => @category_1,
-    :image_url_1 => @image_url_1,
-    :lat_1 => @lat_1,
-    :lon_1 => @lon_1,
   }
 
 end
