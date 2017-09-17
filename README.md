@@ -1,4 +1,4 @@
-# Minus-Yelp
+# Yelp-Hero
 A winning submission for Capital One's Engineering Summit
 
 Deployed website on Heroku: https://immense-brushlands-27696.herokuapp.com/
